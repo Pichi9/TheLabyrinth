@@ -4,7 +4,7 @@
 
 
 /**
- * Auteur : MEBARKI Yacine
+ * Auteur : MEBARKI Yacine NOURRISSIER Alexandre
  * Fichier : main.c
 */
 
