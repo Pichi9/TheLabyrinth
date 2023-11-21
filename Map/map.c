@@ -27,3 +27,10 @@ GameMap* CreateMap(const char *file)
 	return map
 }
 
+
+
+void freeMap(GameMap *map)
+{
+	free(map);
+}
+
