@@ -5,6 +5,8 @@ project(LeLabyrinthe)
 set(SOURCES 
     Render/render.h
     Render/render.c
+    Map/map.h
+    Map/map.c
     main.c
     constantes.h
 )

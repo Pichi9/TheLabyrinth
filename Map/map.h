@@ -1,5 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
+#include <stdlib.h>
+#include <stdio.h>
 #include "../constantes.h"
 
 typedef struct 
@@ -10,7 +12,7 @@ typedef struct
 }GameMap;
 
 // Fonction qui crée la carte à partir du fichier map.txt
-GameMap* CreateMap(const char *file);
+GameMap* CreateMap(const char *filename);
 
 // Fonction qui libère toute la mémoire que la carte occupe
 void freeMap(GameMap *map);
@@ -18,3 +20,4 @@ void freeMap(GameMap *map);
 // Fonction qui dit si c'est un mur 
 int isWall(GameMap *map, int x, int y);
 
+#endif

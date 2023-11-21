@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe"
   "/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe.pdb"
+  "CMakeFiles/LeLabyrinthe.dir/Map/map.c.o"
+  "CMakeFiles/LeLabyrinthe.dir/Map/map.c.o.d"
   "CMakeFiles/LeLabyrinthe.dir/Render/render.c.o"
   "CMakeFiles/LeLabyrinthe.dir/Render/render.c.o.d"
   "CMakeFiles/LeLabyrinthe.dir/main.c.o"
