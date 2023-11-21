@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "constantes.h": "c",
-        "sdl.h": "c",
-        "sdl_image.h": "c",
-        "render.h": "c"
-    }
-}
