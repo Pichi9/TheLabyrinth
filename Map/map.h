@@ -20,4 +20,7 @@ void freeMap(GameMap *map);
 // Fonction qui dit si c'est un mur 
 int isWall(GameMap *map, int x, int y);
 
+// Fonction qui affiche la carte
+void printMap(GameMap *map);
+
 #endif

@@ -13,4 +13,5 @@ void initSDL(SDL_Window** window, SDL_Renderer** renderer);
 // Fonction qui libère toutes les ressources SDL 
 void cleanSDL(SDL_Window* window, SDL_Renderer* renderer);
 
+
 #endif
