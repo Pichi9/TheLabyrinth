@@ -1,8 +1,4 @@
 #include "render.h"
-#include <SDL.h>   
-#include <SDL_image.h>
-#include "../../LeLabyrinthe/constantes.h"
-
 
 void initSDL(SDL_Window** window, SDL_Renderer** renderer)
 {
@@ -55,3 +51,7 @@ void cleanSDL(SDL_Window* window, SDL_Renderer* renderer)
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
+
+
+
+// Faire les fonctions qui dessinent les formes (cercle, rayon, ..)

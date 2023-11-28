@@ -129,30 +129,6 @@ LeLabyrinthe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/build
 .PHONY : LeLabyrinthe/fast
 
-Map/map.o: Map/map.c.o
-.PHONY : Map/map.o
-
-# target to build an object file
-Map/map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.o
-.PHONY : Map/map.c.o
-
-Map/map.i: Map/map.c.i
-.PHONY : Map/map.i
-
-# target to preprocess a source file
-Map/map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.i
-.PHONY : Map/map.c.i
-
-Map/map.s: Map/map.c.s
-.PHONY : Map/map.s
-
-# target to generate assembly for a file
-Map/map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.s
-.PHONY : Map/map.c.s
-
 Render/render.o: Render/render.c.o
 .PHONY : Render/render.o
 
@@ -210,9 +186,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LeLabyrinthe"
-	@echo "... Map/map.o"
-	@echo "... Map/map.i"
-	@echo "... Map/map.s"
 	@echo "... Render/render.o"
 	@echo "... Render/render.i"
 	@echo "... Render/render.s"

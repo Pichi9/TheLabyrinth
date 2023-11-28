@@ -5,8 +5,6 @@ project(LeLabyrinthe)
 set(SOURCES 
     Render/render.h
     Render/render.c
-    Map/map.h
-    Map/map.c
     main.c
     constantes.h
 )
@@ -31,3 +29,4 @@ file(COPY Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 set_target_properties(LeLabyrinthe PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
 )
+
