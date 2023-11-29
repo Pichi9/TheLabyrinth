@@ -1,6 +1,6 @@
 # LE LABYRINTHE
 
-Projet de Programmation avancée L2 Informatique 23/24
+Projet de Programmation avancée L2 Informatique 23/24.
 Langage utilisé : C
 
 ## Auteurs 
