@@ -24,3 +24,7 @@ void freePlayer(Player *p);
 
 // Fonction qui gère l'angle du joueur
 void anglePlayer(Player *p);
+
+
+
+#endif
