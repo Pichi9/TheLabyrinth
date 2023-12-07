@@ -13,7 +13,6 @@ void initPlayer(Player *p)
 	fixDir(p);
 }
 
-
 void freePlayer(Player *p)
 {
 	free(p);

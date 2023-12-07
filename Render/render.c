@@ -9,7 +9,6 @@ void initSDL(SDL_Window** window, SDL_Renderer** renderer)
     }
 }
 
-
 Labyrendu* createrender()
 {
     Labyrendu* labyrenderer = calloc(1, sizeof(Labyrendu));
@@ -40,10 +39,20 @@ Labyrendu* createrender()
 void initTextures(Labyrendu* labyrenderer)
 {
     SDL_Texture* textureFloor = SDL_LoadBMP("../Textures/Floor.bmp");
+    labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderert->render,textureFloor);
     SDL_Texture* textureSky = SDL_LoadBMP("../Textures/Sky.bmp");
+    labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderert->render,textureSky);
     SDL_Texture* textureWall = SDL_LoadBMP("../Textures/Wall.bmp");
+    labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderert->render,textureWall);
 }
 
+
+void renderSky(Labyrendu* labyrenderer){
+    SDL_Rect a = {0.0,0.0,max,max};
+    SDL_Rect b = {0.0,0.0,SCREEN_WIDTH,SCREEN_HEIGHT/2};
+
+    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureSky,&a,&b)
+}
 
 void cleanSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
@@ -53,5 +62,3 @@ void cleanSDL(SDL_Window* window, SDL_Renderer* renderer)
 }
 
 
-
-// Faire les fonctions qui dessinent les formes (cercle, rayon, ..)
