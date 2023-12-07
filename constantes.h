@@ -18,7 +18,8 @@
 #define FLOOR_WIDTH 800
 #define FLOOR_HEIGHT 300
 
-// Valeur de pi
+// Valeurs mathématiques
 #define pi M_PI
+#define max INT_MAX
 
 #endif

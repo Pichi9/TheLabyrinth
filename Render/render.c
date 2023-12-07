@@ -46,12 +46,28 @@ void initTextures(Labyrendu* labyrenderer)
     labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderert->render,textureWall);
 }
 
+void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h){
+    SDL_Rect a = {x,y,w,h};
+    SDL_RenderFillRect(labyrender->renderer, &a);
+}
+
+void renderFloor(Labyrendu* labyrenderer){
+    SDL_Rect a = {0.0,0.0,max,max};
+    SDL_Rect b = {0.0,SCREEN_HEIGHT/2,SCREEN_WIDTH,SCREEN_HEIGHT/2};
+
+    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureFloor,&a,&b)
+}
 
 void renderSky(Labyrendu* labyrenderer){
     SDL_Rect a = {0.0,0.0,max,max};
     SDL_Rect b = {0.0,0.0,SCREEN_WIDTH,SCREEN_HEIGHT/2};
 
     SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureSky,&a,&b)
+}
+
+void renderAll(Labyrendu* labyrender){
+    renderFloor(labyrender);
+    renderSky(labyrender);
 }
 
 void cleanSDL(SDL_Window* window, SDL_Renderer* renderer)
