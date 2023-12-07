@@ -1,5 +1,6 @@
 #ifndef CONSTANTES_H
 #define CONSTANTES_H
+#include <math.h>
 
 // Taille de l'écran
 #define SCREEN_WIDTH 800
@@ -17,5 +18,7 @@
 #define FLOOR_WIDTH 800
 #define FLOOR_HEIGHT 300
 
+// Valeur de pi
+#define pi M_PI
 
 #endif
