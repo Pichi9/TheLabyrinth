@@ -10,11 +10,13 @@ typedef struct
 {
 	float x; 
 	float y;
-	float dx;
-	float dy;
+	float dirX;
+	float dirY;
 	float angle;
 }Player;
 
+// Fonction qui met à jour les variables d'angle en radian
+void fixDir(Player *p);
 
 // Fonction qui initialise le joueur
 void initPlayer(Player *p);
