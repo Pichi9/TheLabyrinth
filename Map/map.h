@@ -9,8 +9,6 @@
 typedef struct 
 {
 	int map[MAP_HEIGHT][MAP_WIDTH];
-	int playerX;
-	int playerY;
 }GameMap;
 
 // Fonction qui crée la carte à partir du fichier map.txt

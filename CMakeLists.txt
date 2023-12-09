@@ -1,32 +1,16 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
+
+# Nom du projet
 project(LeLabyrinthe)
 
-# Configuration des sources pour le projet
-set(SOURCES 
-    Render/render.h
-    Render/render.c
-    main.c
-    constantes.h
-)
-
-# Recherche des packages SDL2 et SDL2_image
+# Inclure SDL2
 find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
 
-# Inclure les répertoires d'en-tête SDL2 et SDL2_image
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+# Inclure les fichiers d'en-tête
+include_directories(${SDL2_INCLUDE_DIRS} ./Map ./Player ./Render ./Tscreen)
 
-# Création de l'exécutable à partir des fichiers sources
-add_executable(LeLabyrinthe ${SOURCES})
+# Ajouter l'exécutable
+add_executable(LeLabyrinthe main.c Map/map.c Player/player.c Render/render.c Tscreen/tscreen.c)
 
-# Liens avec les bibliothèques SDL2 et SDL2_image
-target_link_libraries(LeLabyrinthe ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
-
-# Copier les fichiers de ressources (textures, etc.) vers le dossier de build
-file(COPY Textures DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-
-# Déplacer l'exécutable vers le répertoire LeLabyrinthe
-set_target_properties(LeLabyrinthe PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-)
-
+# Lier avec SDL2 et la bibliothèque mathématique
+target_link_libraries(LeLabyrinthe ${SDL2_LIBRARIES} m)

@@ -69,24 +69,10 @@ include CMakeFiles/LeLabyrinthe.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LeLabyrinthe.dir/flags.make
 
-CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
-CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c
-CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LeLabyrinthe.dir/Render/render.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/Render/render.c.o -MF CMakeFiles/LeLabyrinthe.dir/Render/render.c.o.d -o CMakeFiles/LeLabyrinthe.dir/Render/render.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c
-
-CMakeFiles/LeLabyrinthe.dir/Render/render.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LeLabyrinthe.dir/Render/render.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c > CMakeFiles/LeLabyrinthe.dir/Render/render.c.i
-
-CMakeFiles/LeLabyrinthe.dir/Render/render.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/Render/render.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c -o CMakeFiles/LeLabyrinthe.dir/Render/render.c.s
-
 CMakeFiles/LeLabyrinthe.dir/main.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
 CMakeFiles/LeLabyrinthe.dir/main.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/main.c
 CMakeFiles/LeLabyrinthe.dir/main.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LeLabyrinthe.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/LeLabyrinthe.dir/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/main.c.o -MF CMakeFiles/LeLabyrinthe.dir/main.c.o.d -o CMakeFiles/LeLabyrinthe.dir/main.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/main.c
 
 CMakeFiles/LeLabyrinthe.dir/main.c.i: cmake_force
@@ -97,24 +83,86 @@ CMakeFiles/LeLabyrinthe.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/main.c -o CMakeFiles/LeLabyrinthe.dir/main.c.s
 
+CMakeFiles/LeLabyrinthe.dir/Map/map.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
+CMakeFiles/LeLabyrinthe.dir/Map/map.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Map/map.c
+CMakeFiles/LeLabyrinthe.dir/Map/map.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/LeLabyrinthe.dir/Map/map.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/Map/map.c.o -MF CMakeFiles/LeLabyrinthe.dir/Map/map.c.o.d -o CMakeFiles/LeLabyrinthe.dir/Map/map.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Map/map.c
+
+CMakeFiles/LeLabyrinthe.dir/Map/map.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LeLabyrinthe.dir/Map/map.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Map/map.c > CMakeFiles/LeLabyrinthe.dir/Map/map.c.i
+
+CMakeFiles/LeLabyrinthe.dir/Map/map.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/Map/map.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Map/map.c -o CMakeFiles/LeLabyrinthe.dir/Map/map.c.s
+
+CMakeFiles/LeLabyrinthe.dir/Player/player.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
+CMakeFiles/LeLabyrinthe.dir/Player/player.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/player.c
+CMakeFiles/LeLabyrinthe.dir/Player/player.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/LeLabyrinthe.dir/Player/player.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/Player/player.c.o -MF CMakeFiles/LeLabyrinthe.dir/Player/player.c.o.d -o CMakeFiles/LeLabyrinthe.dir/Player/player.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/player.c
+
+CMakeFiles/LeLabyrinthe.dir/Player/player.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LeLabyrinthe.dir/Player/player.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/player.c > CMakeFiles/LeLabyrinthe.dir/Player/player.c.i
+
+CMakeFiles/LeLabyrinthe.dir/Player/player.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/Player/player.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/player.c -o CMakeFiles/LeLabyrinthe.dir/Player/player.c.s
+
+CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
+CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c
+CMakeFiles/LeLabyrinthe.dir/Render/render.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/LeLabyrinthe.dir/Render/render.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/Render/render.c.o -MF CMakeFiles/LeLabyrinthe.dir/Render/render.c.o.d -o CMakeFiles/LeLabyrinthe.dir/Render/render.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c
+
+CMakeFiles/LeLabyrinthe.dir/Render/render.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LeLabyrinthe.dir/Render/render.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c > CMakeFiles/LeLabyrinthe.dir/Render/render.c.i
+
+CMakeFiles/LeLabyrinthe.dir/Render/render.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/Render/render.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.c -o CMakeFiles/LeLabyrinthe.dir/Render/render.c.s
+
+CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o: CMakeFiles/LeLabyrinthe.dir/flags.make
+CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Tscreen/tscreen.c
+CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o: CMakeFiles/LeLabyrinthe.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o -MF CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o.d -o CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o -c /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Tscreen/tscreen.c
+
+CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Tscreen/tscreen.c > CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.i
+
+CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Tscreen/tscreen.c -o CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.s
+
 # Object files for target LeLabyrinthe
 LeLabyrinthe_OBJECTS = \
+"CMakeFiles/LeLabyrinthe.dir/main.c.o" \
+"CMakeFiles/LeLabyrinthe.dir/Map/map.c.o" \
+"CMakeFiles/LeLabyrinthe.dir/Player/player.c.o" \
 "CMakeFiles/LeLabyrinthe.dir/Render/render.c.o" \
-"CMakeFiles/LeLabyrinthe.dir/main.c.o"
+"CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o"
 
 # External object files for target LeLabyrinthe
 LeLabyrinthe_EXTERNAL_OBJECTS =
 
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/Render/render.c.o
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/main.c.o
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/build.make
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe: /usr/lib/x86_64-linux-gnu/libSDL2.so
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe"
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/main.c.o
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/Map/map.c.o
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/Player/player.c.o
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/Render/render.c.o
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/build.make
+LeLabyrinthe: /usr/lib/x86_64-linux-gnu/libSDL2.so
+LeLabyrinthe: CMakeFiles/LeLabyrinthe.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable LeLabyrinthe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LeLabyrinthe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/LeLabyrinthe.dir/build: /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/LeLabyrinthe
+CMakeFiles/LeLabyrinthe.dir/build: LeLabyrinthe
 .PHONY : CMakeFiles/LeLabyrinthe.dir/build
 
 CMakeFiles/LeLabyrinthe.dir/clean:

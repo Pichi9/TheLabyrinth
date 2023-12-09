@@ -129,6 +129,54 @@ LeLabyrinthe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/build
 .PHONY : LeLabyrinthe/fast
 
+Map/map.o: Map/map.c.o
+.PHONY : Map/map.o
+
+# target to build an object file
+Map/map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.o
+.PHONY : Map/map.c.o
+
+Map/map.i: Map/map.c.i
+.PHONY : Map/map.i
+
+# target to preprocess a source file
+Map/map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.i
+.PHONY : Map/map.c.i
+
+Map/map.s: Map/map.c.s
+.PHONY : Map/map.s
+
+# target to generate assembly for a file
+Map/map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Map/map.c.s
+.PHONY : Map/map.c.s
+
+Player/player.o: Player/player.c.o
+.PHONY : Player/player.o
+
+# target to build an object file
+Player/player.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Player/player.c.o
+.PHONY : Player/player.c.o
+
+Player/player.i: Player/player.c.i
+.PHONY : Player/player.i
+
+# target to preprocess a source file
+Player/player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Player/player.c.i
+.PHONY : Player/player.c.i
+
+Player/player.s: Player/player.c.s
+.PHONY : Player/player.s
+
+# target to generate assembly for a file
+Player/player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Player/player.c.s
+.PHONY : Player/player.c.s
+
 Render/render.o: Render/render.c.o
 .PHONY : Render/render.o
 
@@ -152,6 +200,30 @@ Render/render.s: Render/render.c.s
 Render/render.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Render/render.c.s
 .PHONY : Render/render.c.s
+
+Tscreen/tscreen.o: Tscreen/tscreen.c.o
+.PHONY : Tscreen/tscreen.o
+
+# target to build an object file
+Tscreen/tscreen.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o
+.PHONY : Tscreen/tscreen.c.o
+
+Tscreen/tscreen.i: Tscreen/tscreen.c.i
+.PHONY : Tscreen/tscreen.i
+
+# target to preprocess a source file
+Tscreen/tscreen.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.i
+.PHONY : Tscreen/tscreen.c.i
+
+Tscreen/tscreen.s: Tscreen/tscreen.c.s
+.PHONY : Tscreen/tscreen.s
+
+# target to generate assembly for a file
+Tscreen/tscreen.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LeLabyrinthe.dir/build.make CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.s
+.PHONY : Tscreen/tscreen.c.s
 
 main.o: main.c.o
 .PHONY : main.o
@@ -186,9 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LeLabyrinthe"
+	@echo "... Map/map.o"
+	@echo "... Map/map.i"
+	@echo "... Map/map.s"
+	@echo "... Player/player.o"
+	@echo "... Player/player.i"
+	@echo "... Player/player.s"
 	@echo "... Render/render.o"
 	@echo "... Render/render.i"
 	@echo "... Render/render.s"
+	@echo "... Tscreen/tscreen.o"
+	@echo "... Tscreen/tscreen.i"
+	@echo "... Tscreen/tscreen.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
