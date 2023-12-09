@@ -1,6 +1,7 @@
 #ifndef CONSTANTES_H
 #define CONSTANTES_H
 #include <math.h>
+#include <limits.h>
 
 // Taille de l'écran
 #define SCREEN_WIDTH 800

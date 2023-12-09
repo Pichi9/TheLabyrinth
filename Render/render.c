@@ -39,30 +39,30 @@ Labyrendu* createrender()
 void initTextures(Labyrendu* labyrenderer)
 {
     SDL_Texture* textureFloor = SDL_LoadBMP("../Textures/Floor.bmp");
-    labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderert->render,textureFloor);
+    labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderer->renderer,textureFloor);
     SDL_Texture* textureSky = SDL_LoadBMP("../Textures/Sky.bmp");
-    labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderert->render,textureSky);
+    labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderer->renderer,textureSky);
     SDL_Texture* textureWall = SDL_LoadBMP("../Textures/Wall.bmp");
-    labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderert->render,textureWall);
+    labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderer->renderer,textureWall);
 }
 
 void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h){
     SDL_Rect a = {x,y,w,h};
-    SDL_RenderFillRect(labyrender->renderer, &a);
+    SDL_RenderFillRect(labyrenderer->renderer, &a);
 }
 
 void renderFloor(Labyrendu* labyrenderer){
     SDL_Rect a = {0.0,0.0,max,max};
     SDL_Rect b = {0.0,SCREEN_HEIGHT/2,SCREEN_WIDTH,SCREEN_HEIGHT/2};
 
-    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureFloor,&a,&b)
+    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureFloor,&a,&b);
 }
 
 void renderSky(Labyrendu* labyrenderer){
     SDL_Rect a = {0.0,0.0,max,max};
     SDL_Rect b = {0.0,0.0,SCREEN_WIDTH,SCREEN_HEIGHT/2};
 
-    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureSky,&a,&b)
+    SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureSky,&a,&b);
 }
 
 void renderAll(Labyrendu* labyrender){

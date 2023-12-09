@@ -18,10 +18,3 @@ int main(int argc, char const *argv[])
 	return 0;
 }
 
-
-
-<<<<<<< HEAD
-// Test de Git
-// Test Git again
-=======
->>>>>>> d28e9787f3388cbdfedb12a23312adb36d7dfe77
