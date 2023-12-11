@@ -1,3 +1,0 @@
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles/LeLabyrinthe.dir
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles/edit_cache.dir
-/home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/build/CMakeFiles/rebuild_cache.dir

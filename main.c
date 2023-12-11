@@ -32,6 +32,19 @@ void handle_events(SDL_Event *event, Player *p, Map *m, SDL_Window *window){
 
 int main(int argc, char const *argv[]) 
 {
-    printf("Hello, World!\n");
+    initSDL();
+	Labyrendu* labyrenderer = createrender();
+	initTextures(labyrenderer);
+	GameMap* map = CreateMap("Map/map.txt");
+	Player* p = malloc(sizeof(Player));
+	initPlayer(p);
+	int victoire = 0;
+	while(victoire==0){
+		renderAll(labyrenderer);
+		renderWall(labyrenderer,map,p);
+		SDL_RenderPresent(labyrenderer->renderer);
+
+	}
+	SDL_Quit();
     return 0;
 }
