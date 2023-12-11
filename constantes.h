@@ -23,4 +23,7 @@
 #define pi M_PI
 #define max INT_MAX
 
+// Vitesse
+#define Speed 0.1
+
 #endif
