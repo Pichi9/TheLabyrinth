@@ -6,21 +6,21 @@
 #include "Player/player.h"
 #include "Render/render.h"
 
-void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
+void handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window){
     Uint8 *keystates;
     while(SDL_PollEvent(event)){
         if(event->type == SDL_QUIT){
-            SDL_QUIT();
+            SDL_Quit();
         }
         if(event->key.keysym.sym==SDLK_z){
-            if(!isWall(m,p->x + p->dirX*Speed, p->y + p->dirY*Speed)){
+            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)){
                 p->x += p->dirX*Speed;
                 p->y += p->dirY*Speed;
                 anglePlayer(p);
             };
         }
         else if(event->key.keysym.sym==SDLK_q){
-            if(!isWall(m,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
             {
                 p->angle += pi/2;
                 anglePlayer(p);
@@ -31,7 +31,7 @@ void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
             };
         }
         else if(event->key.keysym.sym==SDLK_s){
-            if(!isWall(m,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
             {
                 p->x -= p->dirX*Speed;
                 p->y -= p->dirY*Speed;
@@ -39,7 +39,7 @@ void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
             }
         }
         else if(event->key.keysym.sym==SDLK_d){
-            if(!isWall(m,p->x + p->dirX*Speed, p->y + p->dirY*Speed))
+            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed))
             {
                 p->angle += pi/2;
                 anglePlayer(p);
@@ -47,17 +47,21 @@ void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
                 p->y+=p->dirY*Speed;
                 p->angle -= pi/2;
                 anglePlayer(p); //réajuster l'angle à chaque modif de celui ci
-            
             };
         }
         if(event->type==SDL_MOUSEMOTION)
         {
             float move;
-            if(event->motion.x>SCREEN_WIDTH/2){
+            if(event->motion.x>SCREEN_WIDTH/2)
+            {
                 move = 0.01;
-            } else if {
+            } 
+            else if(event->motion.x < SCREEN_WIDTH/2) 
+            {
                 move = -0.01;
-            } else {
+            }
+             else 
+            {
                 move = 0;
             }
             p->angle += move;
