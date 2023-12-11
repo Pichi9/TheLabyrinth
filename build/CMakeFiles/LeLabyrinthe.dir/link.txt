@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/LeLabyrinthe.dir/main.c.o CMakeFiles/LeLabyrinthe.dir/Map/map.c.o CMakeFiles/LeLabyrinthe.dir/Player/player.c.o CMakeFiles/LeLabyrinthe.dir/Render/render.c.o CMakeFiles/LeLabyrinthe.dir/Tscreen/tscreen.c.o -o LeLabyrinthe  /usr/lib/x86_64-linux-gnu/libSDL2.so -lm 

@@ -71,6 +71,9 @@ void printMap(GameMap *map)
 	}
 }
 
-int end(); // Fonction a finir
 
+int end(GameMap *map, int x, int y)
+{
+    return map->map[y][x] == 9;
+}
 

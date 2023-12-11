@@ -46,33 +46,54 @@ void initTextures(Labyrendu* labyrenderer)
     labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderer->renderer,textureWall);
 }
 
-void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h){
+void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h)
+{
     SDL_Rect a = {x,y,w,h};
     SDL_RenderFillRect(labyrenderer->renderer, &a);
 }
 
-void renderFloor(Labyrendu* labyrenderer){
+void renderFloor(Labyrendu* labyrenderer)
+{
     SDL_Rect a = {0.0,0.0,max,max};
     SDL_Rect b = {0.0,SCREEN_HEIGHT/2,SCREEN_WIDTH,SCREEN_HEIGHT/2};
 
     SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureFloor,&a,&b);
 }
 
-void renderSky(Labyrendu* labyrenderer){
+void renderSky(Labyrendu* labyrenderer)
+{
     SDL_Rect a = {0.0,0.0,max,max};
     SDL_Rect b = {0.0,0.0,SCREEN_WIDTH,SCREEN_HEIGHT/2};
 
     SDL_RenderCopy(labyrenderer->renderer,labyrenderer->textureSky,&a,&b);
 }
 
-void renderAll(Labyrendu* labyrender){
+void renderAll(Labyrendu* labyrender)
+{
     renderFloor(labyrender);
     renderSky(labyrender);
 }
 
+void renderWall(Labyrendu* labyrenderer,GameMap* map, Player* p)
+{
+    SDL_SetRenderTarget(labyrenderer,labyrenderer->textureWall);
+    for(size_t i=0;i<SCREEN_WIDTH;i++){
+        float angle = p->angle - (pi/3)/2 + (pi/3) * i / (float)SCREEN_WIDTH;
+        for(float j=0;j<20;j+=0.05){
+            float x=p->x + j * cos(angle);
+            float y=p->y + j * sin(angle);
+            if(map->map[(int)y][(int)x] == 1){
+                size_t hauteur = SCREEN_HEIGHT / j*(cos(angle-p->angle));
+                SDL_RenderDrawLine(labyrenderer->renderer,i,SCREEN_HEIGHT/2-hauteur,i,SCREEN_HEIGHT/2+hauteur/2);
+            }
+        }
+    }
+}
+
+
 void cleanSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
-    SDL_DestroyRenderer(renderer);
+    SDL_DestroyRenderer(renderer);  
     SDL_DestroyWindow(window);
     SDL_Quit();
 }

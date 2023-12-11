@@ -23,4 +23,7 @@ int isWall(GameMap *map, int x, int y);
 // Fonction qui affiche la carte
 void printMap(GameMap *map);
 
+// Fonction
+int end(GameMap *map, int x, int y);
+
 #endif

@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "../constantes.h"
+#include "../Map/map.h"
+#include "../Player/player.h"
 
 
 typedef struct 
@@ -27,6 +29,24 @@ void cleanSDL(SDL_Window* window, SDL_Renderer* renderer);
 
 // Fonction qui initialise les textures
 void initTextures(Labyrendu* labyrenderer);
+
+// Fonction qui
+void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h);
+
+// Fonction qui
+void renderFloor(Labyrendu* labyrenderer);
+
+// Fonction
+void renderSky(Labyrendu* labyrenderer);
+
+// Fonction
+void renderAll(Labyrendu* labyrender);
+
+// Fonction 
+void renderWall(Labyrendu* labyrenderer,GameMap* map, Player* p);
+
+
+
 
 
 
