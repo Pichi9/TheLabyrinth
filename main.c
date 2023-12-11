@@ -14,11 +14,11 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
 }
 
 
-void handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window){
+int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window){
     Uint8 *keystates;
     while(SDL_PollEvent(event)){
         if(event->type == SDL_QUIT){
-            SDL_Quit();
+            return 1;
         }
         if(event->key.keysym.sym==SDLK_z){
             if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)){
@@ -77,25 +77,33 @@ void handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window
             SDL_WarpMouseInWindow(window,SCREEN_WIDTH/2,SCREEN_HEIGHT/2);
         }
     }
+    return 0;
 }
 
 int main(int argc, char const *argv[]) 
 {
+    SDL_Event* event = malloc(sizeof(SDL_Event));
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     initSDL(&window, &renderer);
     Labyrendu* labyrenderer = createrender();
     initTextures(labyrenderer);
-    GameMap* map = CreateMap("Map/map.txt");
+    GameMap* map = malloc(2*sizeof(GameMap));
+    map = CreateMap("Map/map.txt");
     Player* p = malloc(sizeof(Player));
     initPlayer(p);
     int win = 0;
     while(win==0)
     {
+        if(end(map,p->x,p->y)){
+            win=1;
+        }
         renderAll(labyrenderer);
+        win = handle_events(event,p,map,window);
         renderWall(labyrenderer,map,p);
         SDL_RenderPresent(labyrenderer->renderer);
     }
+    printf("Vous avez gagné !");
     freeAll(map,p,window,labyrenderer);
     return 0;
 }
