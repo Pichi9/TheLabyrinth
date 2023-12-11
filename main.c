@@ -6,6 +6,12 @@
 #include "Player/player.h"
 #include "Render/render.h"
 
+void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer){
+    freeMap(map);
+    freePlayer(p);
+    cleanSDL(window,labyrenderer);
+}
+
 void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
     Uint8 *keystates;
     while(SDL_PollEvent(event)){
@@ -84,6 +90,6 @@ int main(int argc, char const *argv[])
         renderWall(labyrenderer,map,p);
         SDL_RenderPresent(labyrenderer->renderer);
     }
-    SDL_Quit();
+    freeAll(map,p,window,labyrenderer);
     return 0;
 }
