@@ -6,7 +6,66 @@
 #include "Player/player.h"
 #include "Render/render.h"
 
-
+void handle_events(SDL_Event *event, Player *p, Gamemap *m, SDL_Window *window){
+    Uint8 *keystates;
+    while(SDL_PollEvent(event)){
+        if(event->type == SDL_QUIT){
+            SDL_QUIT();
+        }
+        if(event->key.keysym.sym==SDLK_z){
+            if(!isWall(m,p->x + p->dirX*Speed, p->y + p->dirY*Speed)){
+                p->x += p->dirX*Speed;
+                p->y += p->dirY*Speed;
+                anglePlayer(p);
+            };
+        }
+        else if(event->key.keysym.sym==SDLK_q){
+            if(!isWall(m,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+            {
+                p->angle += pi/2;
+                anglePlayer(p);
+                p->x-=p->dirX*Speed;
+                p->y-=p->dirY*Speed;
+                p->angle -= pi/2;
+                anglePlayer(p); //réajuster l'angle à chaque modif de celui ci
+            };
+        }
+        else if(event->key.keysym.sym==SDLK_s){
+            if(!isWall(m,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+            {
+                p->x -= p->dirX*Speed;
+                p->y -= p->dirY*Speed;
+                anglePlayer(p);
+            }
+        }
+        else if(event->key.keysym.sym==SDLK_d){
+            if(!isWall(m,p->x + p->dirX*Speed, p->y + p->dirY*Speed))
+            {
+                p->angle += pi/2;
+                anglePlayer(p);
+                p->x+=p->dirX*Speed;
+                p->y+=p->dirY*Speed;
+                p->angle -= pi/2;
+                anglePlayer(p); //réajuster l'angle à chaque modif de celui ci
+            
+            };
+        }
+        if(event->type==SDL_MOUSEMOTION)
+        {
+            float move;
+            if(event->motion.x>SCREEN_WIDTH/2){
+                move = 0.01;
+            } else if {
+                move = -0.01;
+            } else {
+                move = 0;
+            }
+            p->angle += move;
+            anglePlayer(p);
+            SDL_WarpMouseInWindow(window,SCREEN_WIDTH/2,SCREEN_HEIGHT/2);
+        }
+    }
+}
 
 int main(int argc, char const *argv[]) 
 {
