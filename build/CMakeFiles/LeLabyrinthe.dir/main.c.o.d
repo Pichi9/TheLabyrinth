@@ -191,9 +191,9 @@ CMakeFiles/LeLabyrinthe.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/player.h \
- /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_image.h \
  /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Player/../constantes.h \
  /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/render.h \
  /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/../constantes.h \
  /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/../Map/map.h \
- /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/../Player/player.h
+ /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/Render/../Player/player.h \
+ /home/pichi/Documents/Cours/PA/Projet/LeLabyrinthe/constantes.h
