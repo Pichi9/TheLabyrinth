@@ -82,7 +82,7 @@ void renderAll(Labyrendu* labyrender)
 
 void renderWall(Labyrendu* labyrenderer,GameMap* map, Player* p)
 {
-    SDL_SetRenderTarget(labyrenderer,labyrenderer->textureWall);
+    SDL_SetRenderTarget(labyrenderer->renderer,labyrenderer->textureWall);
     for(size_t i=0;i<SCREEN_WIDTH;i++){
         float angle = p->angle - (pi/3)/2 + (pi/3) * i / (float)SCREEN_WIDTH;
         for(float j=0;j<20;j+=0.05){

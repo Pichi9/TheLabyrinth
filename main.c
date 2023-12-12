@@ -6,60 +6,76 @@
 #include "Player/player.h"
 #include "Render/render.h"
 
-
-void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer){
-    freeMap(map);
-    freePlayer(p);
-    cleanSDL(window,labyrenderer);
+// Notre fonction qui libère les ressources utilisées dans le jeu 
+void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer)
+{
+    freeMap(map); // Libération de la mémoire allouée pour la carte
+    freePlayer(p); // Libération de la mémoire allouée pour le joueur
+    cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
-
-int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window){
+// Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
+int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window)
+{
     Uint8 *keystates;
-    while(SDL_PollEvent(event)){
-        if(event->type == SDL_QUIT){
+    while(SDL_PollEvent(event))
+    {
+        if(event->type == SDL_QUIT)
+        {
             return 1;
         }
-        if(event->key.keysym.sym==SDLK_z){
-            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)){
-                p->x += p->dirX*Speed;
-                p->y += p->dirY*Speed;
-                anglePlayer(p);
+
+        // Si la touche Z est pressée
+        if(event->key.keysym.sym==SDLK_z)
+        {  
+            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
+            {
+                p->x += p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse 
+                p->y += p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
+                anglePlayer(p); // Ajuste l'angle du joueur
             };
         }
-        else if(event->key.keysym.sym==SDLK_q){
-            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+        // Si la touche Q est pressée
+        else if(event->key.keysym.sym==SDLK_q)
+        {
+            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
             {
-                p->angle += pi/2;
-                anglePlayer(p);
-                p->x-=p->dirX*Speed;
-                p->y-=p->dirY*Speed;
-                p->angle -= pi/2;
-                anglePlayer(p); //réajuster l'angle à chaque modif de celui ci
+                p->angle += pi/2; // Modifie l'angle du joueur
+                anglePlayer(p); // Ajuste l'angle du joueur
+                p->x-=p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
+                p->y-=p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
+                p->angle -= pi/2; // Modifie l'angle du joueur
+                anglePlayer(p); // Ajuste l'angle du joueur
             };
         }
-        else if(event->key.keysym.sym==SDLK_s){
-            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed))
+        // Si la touche S est pressée
+        else if(event->key.keysym.sym==SDLK_s)
+        {
+            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
             {
-                p->x -= p->dirX*Speed;
-                p->y -= p->dirY*Speed;
-                anglePlayer(p);
+                p->x -= p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
+                p->y -= p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
+                anglePlayer(p); // Ajuste l'angle du joueur
             }
         }
-        else if(event->key.keysym.sym==SDLK_d){
-            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed))
+        // Si la touche D est pressée
+        else if(event->key.keysym.sym==SDLK_d)
+        {
+            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
             {
-                p->angle += pi/2;
-                anglePlayer(p);
-                p->x+=p->dirX*Speed;
-                p->y+=p->dirY*Speed;
-                p->angle -= pi/2;
-                anglePlayer(p); //réajuster l'angle à chaque modif de celui ci
+                p->angle += pi/2; // Modifie l'angle du joueur
+                anglePlayer(p); // Ajuste l'angle du joueur
+                p->x+=p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
+                p->y+=p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
+                p->angle -= pi/2; // Modifie l'angle du joueur
+                anglePlayer(p); // Ajuste l'angle du joueur
             };
         }
+        // Traitement des mouvements de la souris
         if(event->type==SDL_MOUSEMOTION)
         {
             float move;
+            // Détermine la direction du mouvement de la sourie
             if(event->motion.x>SCREEN_WIDTH/2)
             {
                 move = 0.01;
@@ -73,7 +89,7 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window)
                 move = 0;
             }
             p->angle += move;
-            anglePlayer(p);
+            anglePlayer(p); // Ajuste l'angle du joueur
             SDL_WarpMouseInWindow(window,SCREEN_WIDTH/2,SCREEN_HEIGHT/2);
         }
     }
@@ -82,7 +98,6 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window)
 
 int main(int argc, char const *argv[]) 
 {
-    SDL_Event* event = malloc(sizeof(SDL_Event));
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     initSDL(&window, &renderer);
@@ -92,18 +107,21 @@ int main(int argc, char const *argv[])
     map = CreateMap("Map/map.txt");
     Player* p = malloc(sizeof(Player));
     initPlayer(p);
+    SDL_Event* event = malloc(sizeof(SDL_Event));
     int win = 0;
     while(win==0)
     {
-        if(end(map,p->x,p->y)){
+        if(end(map,p->x,p->y))
+        {
             win=1;
+            printf("Vous n'avez pas trouver la sortie !\n");
         }
         renderAll(labyrenderer);
         win = handle_events(event,p,map,window);
         renderWall(labyrenderer,map,p);
         SDL_RenderPresent(labyrenderer->renderer);
     }
-    printf("Vous avez gagné !");
-    freeAll(map,p,window,labyrenderer);
+    printf("Vous n'avez pas trouver la sortie !\n");
+    freeAll(p,map,window,labyrenderer);
     return 0;
 }

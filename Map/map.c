@@ -3,14 +3,14 @@
 
 GameMap* CreateMap(const char *filename) 
 {
-    GameMap *map = (GameMap*)malloc(sizeof(GameMap));
+    GameMap *map = (GameMap*)malloc(sizeof(GameMap)); // Allocation de la mémoire nécessaire pour la structure GameMap
     if (map == NULL) 
 	{
         printf("Erreur dans l'allocation de mémoire pour la carte");
         return NULL;
     }
 
-    FILE *file = fopen(filename, "r");
+    FILE *file = fopen(filename, "r"); // On ouvre le fichier pour lire la map
     if (file == NULL) 
 	{
         printf("Erreur dans le chargement de la carte");
@@ -18,8 +18,8 @@ GameMap* CreateMap(const char *filename)
         return NULL;
     }
     
-    int ligne = 0;
-    int coll = 0;
+    int ligne = 0; // On initialise une variable qui lit la map 
+    int coll = 0; // On initialise une variable qui lit la map
     char c;
     while ((c = fgetc(file)) != EOF) 
 	{
@@ -45,7 +45,7 @@ GameMap* CreateMap(const char *filename)
 
 void freeMap(GameMap *map)
 {
-	free(map);
+	free(map); // On libère la mémoire occupé par la structure GameMap
 }
 
 
@@ -74,6 +74,6 @@ void printMap(GameMap *map)
 
 int end(GameMap *map, int x, int y)
 {
-    return map->map[y][x] == 9;
+    return map->map[y][x] == 9; 
 }
 
