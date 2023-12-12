@@ -30,19 +30,19 @@ void cleanSDL(SDL_Window* window, SDL_Renderer* renderer);
 // Fonction qui initialise les textures
 void initTextures(Labyrendu* labyrenderer);
 
-// Fonction qui
+// Fonction qui crée un rendu d'un rectangle
 void initRect(Labyrendu* labyrenderer,int x,int y,int w,int h);
 
-// Fonction qui
+// Fonction qui crée un rendu du sol
 void renderFloor(Labyrendu* labyrenderer);
 
-// Fonction
+// Fonction qui crée un rendu du ciel
 void renderSky(Labyrendu* labyrenderer);
 
-// Fonction
+// Fonction qui crée un rendu des choses statiques
 void renderAll(Labyrendu* labyrender);
 
-// Fonction 
+// Fonction qui crée un rendu des murs
 void renderWall(Labyrendu* labyrenderer,GameMap* map, Player* p);
 
 

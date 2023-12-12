@@ -21,8 +21,8 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window)
     while(SDL_PollEvent(event))
     {
         if(event->type == SDL_QUIT)
-        {
-            return 1;
+        {	
+			freeAll(p,map,window,labyrenderer);
         }
 
         // Si la touche Z est pressée
@@ -114,14 +114,13 @@ int main(int argc, char const *argv[])
         if(end(map,p->x,p->y))
         {
             win=1;
-            printf("Vous n'avez pas trouver la sortie !\n");
+            printf("Vous avez trouver la sortie !\n");
         }
         renderAll(labyrenderer);
         win = handle_events(event,p,map,window);
         renderWall(labyrenderer,map,p);
         SDL_RenderPresent(labyrenderer->renderer);
     }
-    printf("Vous n'avez pas trouver la sortie !\n");
     freeAll(p,map,window,labyrenderer);
     return 0;
 }
