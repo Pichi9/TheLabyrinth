@@ -15,9 +15,7 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
-void finDeJeu(int beginTime, int endTime){
-    
-}
+// void finDeJeu(int beginTime, int endTime){}
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
 int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,Labyrendu *labyrenderer)
@@ -128,7 +126,7 @@ int main(int argc, char const *argv[])
         }
     }
     pause(5);
-    finDeJeu()
+    //finDeJeu()
     freeAll(p,map,window,labyrenderer);
     printf("Fin de la partie !\n");
     return 0;
