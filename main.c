@@ -15,14 +15,14 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
 }
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
-int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window)
+int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,Labyrendu *labyrenderer)
 {
     Uint8 *keystates;
     while(SDL_PollEvent(event))
     {
-        if(event->type == SDL_QUIT)
+        if(event->key.keysym.sym==SDLK_ESCAPE)
         {	
-			freeAll(p,map,window,labyrenderer);
+            return 1;
         }
 
         // Si la touche Z est pressée
@@ -111,13 +111,13 @@ int main(int argc, char const *argv[])
     int win = 0;
     while(win==0)
     {
-        if(end(map,p->x,p->y))
+        if(end(map,p->x,p->y)==1)
         {
             win=1;
             printf("Vous avez trouver la sortie !\n");
         }
         renderAll(labyrenderer);
-        win = handle_events(event,p,map,window);
+        win = handle_events(event,p,map,window,labyrenderer);
         renderWall(labyrenderer,map,p);
         SDL_RenderPresent(labyrenderer->renderer);
     }
