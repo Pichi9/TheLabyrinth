@@ -15,7 +15,7 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
-// void finDeJeu(int beginTime, int endTime){}
+//void finDeJeu(int beginTime, int endTime){}
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
 int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,Labyrendu *labyrenderer)
@@ -41,13 +41,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
         // Si la touche Q est pressée
         else if(event->key.keysym.sym==SDLK_q)
         {
-            if(!isWall(map,p->x - p->dirX*Speed,p->y - p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
+            if(!isWall(map,p->x + p->dirY*Speed, p->y - p->dirX*Speed)) // Changement ici
             {
-                p->angle += pi/2; // Modifie l'angle du joueur
-                anglePlayer(p); // Ajuste l'angle du joueur
-                p->x-=p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
-                p->y-=p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
-                p->angle -= pi/2; // Modifie l'angle du joueur
+                p->x += p->dirY*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
+                p->y -= p->dirX*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
             };
         }
@@ -64,16 +61,14 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
         // Si la touche D est pressée
         else if(event->key.keysym.sym==SDLK_d)
         {
-            if(!isWall(map,p->x + p->dirX*Speed, p->y + p->dirY*Speed)) // Verifie si il y'a un mur qui rends le déplacement impossible
+            if(!isWall(map,p->x - p->dirY*Speed,p->y + p->dirX*Speed)) // Changement ici
             {
-                p->angle += pi/2; // Modifie l'angle du joueur
-                anglePlayer(p); // Ajuste l'angle du joueur
-                p->x+=p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
-                p->y+=p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
-                p->angle -= pi/2; // Modifie l'angle du joueur
+                p->x -= p->dirY*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
+                p->y += p->dirX*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
             };
         }
+
         // Traitement des mouvements de la souris
         if(event->type==SDL_MOUSEMOTION)
         {
