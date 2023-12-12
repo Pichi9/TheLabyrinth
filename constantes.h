@@ -29,7 +29,7 @@
 #define pi M_PI
 #define max INT_MAX
 
-// Vitesse
+// Vitesse du joueur
 #define Speed 0.1
 
 #endif

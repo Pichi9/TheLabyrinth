@@ -39,15 +39,15 @@ Labyrendu* createrender()
 void initTextures(Labyrendu* labyrenderer)
 {
     SDL_Surface* tempSurface;
-    tempSurface = SDL_LoadBMP("../Textures/Floor.bmp");
+    tempSurface = SDL_LoadBMP("Textures/Floor.bmp");
     labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 
-    tempSurface = SDL_LoadBMP("../Textures/Sky.bmp");
+    tempSurface = SDL_LoadBMP("Textures/Sky.bmp");
     labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 
-    tempSurface = SDL_LoadBMP("../Textures/Wall.bmp");
+    tempSurface = SDL_LoadBMP("Textures/Wall.bmp");
     labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 }

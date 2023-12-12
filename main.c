@@ -90,7 +90,7 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
             }
             p->angle += move;
             anglePlayer(p); // Ajuste l'angle du joueur
-            SDL_WarpMouseInWindow(window,SCREEN_WIDTH/2,SCREEN_HEIGHT/2);
+            SDL_WarpMouseInWindow(window,SCREEN_WIDTH/2,SCREEN_HEIGHT/2); // Remet la souris au centre
         }
     }
     return 0;
@@ -108,10 +108,11 @@ int main(int argc, char const *argv[])
     Player* p = malloc(sizeof(Player));
     initPlayer(p);
     SDL_Event* event = malloc(sizeof(SDL_Event));
+    SDL_ShowCursor(SDL_DISABLE);
     int win = 0;
     while(win==0)
     {
-        if(end(map,p->x,p->y)==1)
+        if(end(map,p->x,p->y))
         {
             win=1;
             printf("Vous avez trouver la sortie !\n");
@@ -122,5 +123,6 @@ int main(int argc, char const *argv[])
         SDL_RenderPresent(labyrenderer->renderer);
     }
     freeAll(p,map,window,labyrenderer);
+    printf("Fin de la partie !\n");
     return 0;
 }
