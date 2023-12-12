@@ -16,7 +16,7 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
 }
 
 void finDeJeu(int beginTime, int endTime){
-
+    
 }
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
