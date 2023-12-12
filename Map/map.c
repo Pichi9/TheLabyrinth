@@ -23,7 +23,7 @@ GameMap* CreateMap(const char *filename)
     char c;
     while ((c = fgetc(file)) != EOF) 
 	{
-        if (c == '0' || c == '1') 
+        if (c == '0' || c == '1' || c == '2' || c == '9') 
 		{
             map->map[ligne][coll] = c - '0';
             coll++;

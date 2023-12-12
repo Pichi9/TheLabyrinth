@@ -5,6 +5,7 @@
 #include "Map/map.h"
 #include "Player/player.h"
 #include "Render/render.h"
+#include "Tscreen/tscreen.h"
 
 // Notre fonction qui libère les ressources utilisées dans le jeu 
 void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer)
@@ -12,6 +13,10 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
     freeMap(map); // Libération de la mémoire allouée pour la carte
     freePlayer(p); // Libération de la mémoire allouée pour le joueur
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
+}
+
+void finDeJeu(int beginTime, int endTime){
+
 }
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
@@ -112,16 +117,18 @@ int main(int argc, char const *argv[])
     int win = 0;
     while(win==0)
     {
+        renderAll(labyrenderer);
+        win = handle_events(event,p,map,window,labyrenderer);
+        renderWall(labyrenderer,map,p);
+        SDL_RenderPresent(labyrenderer->renderer);
         if(end(map,p->x,p->y))
         {
             win=1;
             printf("Vous avez trouver la sortie !\n");
         }
-        renderAll(labyrenderer);
-        win = handle_events(event,p,map,window,labyrenderer);
-        renderWall(labyrenderer,map,p);
-        SDL_RenderPresent(labyrenderer->renderer);
     }
+    pause(5);
+    finDeJeu()
     freeAll(p,map,window,labyrenderer);
     printf("Fin de la partie !\n");
     return 0;

@@ -32,4 +32,7 @@
 // Vitesse du joueur
 #define Speed 0.1
 
+// Temps de jeu
+#define Temps 180
+
 #endif
