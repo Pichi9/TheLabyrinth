@@ -19,7 +19,7 @@ typedef struct
 
 
 // Fonction qui initialise la SDL 
-void initSDL(SDL_Window** window, SDL_Renderer** renderer);
+void initSDL();
 
 // Fonction qui créer la fenetre et le renderer
 Labyrendu* createrender();

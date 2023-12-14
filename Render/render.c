@@ -1,6 +1,6 @@
 #include "render.h"
 
-void initSDL(SDL_Window** window, SDL_Renderer** renderer)
+void initSDL()
 {
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {

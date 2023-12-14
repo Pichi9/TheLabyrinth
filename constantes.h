@@ -10,7 +10,7 @@
 #include <limits.h>
 
 // Taille de l'écran
-#define SCREEN_WIDTH 800
+#define SCREEN_WIDTH 1200
 #define SCREEN_HEIGHT 600
 
 // Taille de la map
@@ -34,5 +34,12 @@
 
 // Temps de jeu
 #define Temps 180
+
+
+// Zoom porte de fin
+#define SCALE_BEGIN 1.0f    // Échelle de début de zoom
+#define SCALE_END 10.0f      // Échelle de fin de zoom
+#define ZOOM_IMAGE 200          // Nombre d'images dans le zoom
+#define ZOOM_FRAME 60     // 60 IMS 
 
 #endif

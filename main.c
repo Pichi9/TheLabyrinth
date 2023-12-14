@@ -15,6 +15,7 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
+
 //void finDeJeu(int beginTime, int endTime){}
 
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
@@ -98,9 +99,10 @@ int main(int argc, char const *argv[])
 {
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
-    initSDL(&window, &renderer);
+    initSDL();
     Labyrendu* labyrenderer = createrender();
     initTextures(labyrenderer);
+    startImage(labyrenderer->renderer,"Textures/startimage.bmp");
     GameMap* map = malloc(2*sizeof(GameMap));
     map = CreateMap("Map/map.txt");
     Player* p = malloc(sizeof(Player));
@@ -118,11 +120,16 @@ int main(int argc, char const *argv[])
         {
             win=1;
             printf("Vous avez trouver la sortie !\n");
+            endImageWin(labyrenderer->renderer, "Textures/imageendwin.bmp", 1); 
         }
     }
     pause(5);
     //finDeJeu()
     freeAll(p,map,window,labyrenderer);
+
+    // RAJOUTER CONDITION SI LE TEMPS EST ECOULE
+    endImageLoose(labyrenderer->renderer, "Textures/endimageloose.bmp"); // Affiche l'image de victoire
+
     printf("Fin de la partie !\n");
     return 0;
 }
