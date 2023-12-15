@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <time.h>
 #include "Map/map.h"
 #include "Player/player.h"
 #include "Render/render.h"
@@ -97,6 +98,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
 
 int main(int argc, char const *argv[]) 
 {
+    if(argc<2){
+        printf("Veuillez entrez votre nom en argument.\n");
+        return 0;
+    } else {
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     initSDL();
@@ -109,27 +114,38 @@ int main(int argc, char const *argv[])
     initPlayer(p,map);
     SDL_Event* event = malloc(sizeof(SDL_Event));
     SDL_ShowCursor(SDL_DISABLE);
+    int beginTime = (int)time(NULL);
+    int currentTime;
     int win = 0;
-    while(win==0)
-    {
-        renderAll(labyrenderer);
-        win = handle_events(event,p,map,window,labyrenderer);
-        renderWall(labyrenderer,map,p);
-        SDL_RenderPresent(labyrenderer->renderer);
-        if(end(map,p->x,p->y))
+        while(win==0)
         {
-            win=1;
-            printf("Vous avez trouver la sortie !\n");
-            endImageWin(labyrenderer->renderer, "Textures/imageendwin.bmp", 1); 
+            renderAll(labyrenderer);
+            win = handle_events(event,p,map,window,labyrenderer);
+            renderWall(labyrenderer,map,p);
+            SDL_RenderPresent(labyrenderer->renderer);
+            currentTime = (int)time(NULL);
+            if(end(map,p->x,p->y))
+            {
+                win=1;
+                printf("Vous avez trouvé la sortie !\n");
+                int endTime = (int)time(NULL);
+                createScore("Score.txt",argv[1], beginTime, endTime);
+                endImageWin(labyrenderer->renderer, "Textures/imageendwin.bmp", 1); 
+            } else if(currentTime-beginTime>=Temps){
+                win=1;
+                printf("Vous n'avez pas trouvé la sortie !\n");
+                endImageLoose(labyrenderer->renderer, "Textures/endimageloose.bmp"); // Affiche l'image de victoire
+
+            }
         }
+
+        //finDeJeu()
+        freeAll(p,map,window,labyrenderer);
+
+        // RAJOUTER CONDITION SI LE TEMPS EST ECOULE
+        //endImageLoose(labyrenderer->renderer, "Textures/endimageloose.bmp"); // Affiche l'image de victoire
+
+        printf("Fin de la partie !\n");
+        return 0;
     }
-
-    //finDeJeu()
-    freeAll(p,map,window,labyrenderer);
-
-    // RAJOUTER CONDITION SI LE TEMPS EST ECOULE
-    endImageLoose(labyrenderer->renderer, "Textures/endimageloose.bmp"); // Affiche l'image de victoire
-
-    printf("Fin de la partie !\n");
-    return 0;
 }

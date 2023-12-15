@@ -1,10 +1,10 @@
 #include "tscreen.h"
 
 void createScore(const char *filename,char* nom, int beginTime, int endTime){
-    int score = (Temps + (beginTime - endTime)) * 10;
-    FILE *file = fopen(filename, "w");
-    fprintf(file,"%s : %d",nom,time);
-    fclose(file);
+    int score = Temps - (endTime - beginTime);
+    FILE *file = fopen(filename, "a");
+    fprintf(file,"\n%s : %d secondes restantes.",nom,score);
+    close(file);  
 }
 
 
