@@ -106,7 +106,7 @@ int main(int argc, char const *argv[])
     GameMap* map = malloc(2*sizeof(GameMap));
     map = CreateMap("Map/map.txt");
     Player* p = malloc(sizeof(Player));
-    initPlayer(p);
+    initPlayer(p,map);
     SDL_Event* event = malloc(sizeof(SDL_Event));
     SDL_ShowCursor(SDL_DISABLE);
     int win = 0;
@@ -123,7 +123,7 @@ int main(int argc, char const *argv[])
             endImageWin(labyrenderer->renderer, "Textures/imageendwin.bmp", 1); 
         }
     }
-    pause(5);
+
     //finDeJeu()
     freeAll(p,map,window,labyrenderer);
 

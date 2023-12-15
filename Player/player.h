@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "../constantes.h"
+#include "../Map/map.h"
 
 typedef struct 
 {
@@ -14,11 +15,14 @@ typedef struct
 	float angle;
 }Player;
 
+// Fonction
+void initSpawnCoords(Player *p, GameMap *m);
+
 // Fonction qui met à jour les variables d'angle en radian
 void fixDir(Player *p);
 
 // Fonction qui initialise le joueur
-void initPlayer(Player *p);
+void initPlayer(Player *p, GameMap *m);
 
 // Fonction qui libère toute la mémoire que la carte occupe
 void freePlayer(Player *p);
