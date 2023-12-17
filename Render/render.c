@@ -7,6 +7,10 @@ void initSDL()
         printf("Erreur dans l'initialisation de SDL : %s\n", SDL_GetError());
         return;
     }
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) 
+    {
+        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+    }
 }
 
 Labyrendu* createrender()
@@ -39,15 +43,15 @@ Labyrendu* createrender()
 void initTextures(Labyrendu* labyrenderer)
 {
     SDL_Surface* tempSurface;
-    tempSurface = SDL_LoadBMP("Textures/Floor.bmp");
+    tempSurface = SDL_LoadBMP("Ressources/Textures/Floor.bmp");
     labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 
-    tempSurface = SDL_LoadBMP("Textures/Sky.bmp");
+    tempSurface = SDL_LoadBMP("Ressources/Textures/Sky.bmp");
     labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 
-    tempSurface = SDL_LoadBMP("Textures/Wall.bmp");
+    tempSurface = SDL_LoadBMP("Ressources/Textures/Wall.bmp");
     labyrenderer->textureWall = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
     SDL_FreeSurface(tempSurface);
 }

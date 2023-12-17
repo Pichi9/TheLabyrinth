@@ -38,8 +38,11 @@
 
 // Zoom porte de fin
 #define SCALE_BEGIN 1.0f    // Échelle de début de zoom
-#define SCALE_END 10.0f      // Échelle de fin de zoom
-#define ZOOM_IMAGE 200          // Nombre d'images dans le zoom
+#define SCALE_END 20.0f      // Échelle de fin de zoom
+#define ZOOM_IMAGE 20          // Nombre d'images dans le zoom
 #define ZOOM_FRAME 60     // 60 IMS 
 
+
+// Temps entre les pas
+#define TIME_STEP 1000
 #endif

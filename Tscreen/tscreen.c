@@ -69,3 +69,8 @@ void endImageWin(SDL_Renderer *renderer, const char *image, int zoom)
     SDL_DestroyTexture(texture);
 }
 
+
+
+
+
+
