@@ -1,13 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <limits.h>
 #include <time.h>
 #include "Map/map.h"
 #include "Player/player.h"
 #include "Render/render.h"
 #include "Tscreen/tscreen.h"
+
+
 
 // Notre fonction qui libère les ressources utilisées dans le jeu 
 void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer, TTF_Font *font)
@@ -27,8 +31,6 @@ void freeMusic(Mix_Music *backgroundMusic, Mix_Chunk *stepSound, Mix_Chunk *winM
     Mix_FreeChunk(looseMusic);
 }
 
-
-//void finDeJeu(int beginTime, int endTime){}
 
 Uint32 last = 0;
 // Notre fonction qui gère les évènements du jeu (touches du claviers, souris)
@@ -154,8 +156,7 @@ int main(int argc, char const *argv[])
     stepSound = Mix_LoadWAV("Ressources/Sound/pas.mp3");
     winMusic = Mix_LoadWAV("Ressources/Sound/winMusic.mp3");
     looseMusic = Mix_LoadWAV("Ressources/Sound/looseMusic.mp3");
-
-    TTF_Font* font = loadFont("Ressources/Font/police.tff");
+    TTF_Font* font = TTF_OpenFont("Ressources/Font/police.ttf", 20);
     Labyrendu* labyrenderer = createrender();
     initTextures(labyrenderer);
     startImage(labyrenderer->renderer,"Ressources/Images/startimage.bmp");
@@ -177,8 +178,9 @@ int main(int argc, char const *argv[])
             renderWall(labyrenderer,map,p);
             SDL_RenderPresent(labyrenderer->renderer);
             currentTime = (int)time(NULL);
-            sprintf(showTime,"Temps : %d",getTimeLeft(beginTime,currentTime));
-            applyText(labyrenderer->renderer, 0,0,80,30,showTime,font)
+            sprintf(showTime,"Time : %d",getTimeLeft(beginTime,currentTime));
+            applyText(labyrenderer->renderer,0,SCREEN_HEIGHT/2,150,30,showTime,font);
+            SDL_RenderPresent(labyrenderer->renderer);
             if(end(map,p->x,p->y))
             {
                 win=1;
@@ -188,19 +190,16 @@ int main(int argc, char const *argv[])
                 Mix_HaltMusic(); // On coupe la musique du jeu
                 Mix_PlayChannel(-1, winMusic, 0); // On active le son de la victoire
                 endImageWin(labyrenderer->renderer, "Ressources/Images/endimagewin.bmp", 1); 
-                return 0;
             } else if(currentTime-beginTime>=Temps)
             {
                 win=1;
                 printf("Vous n'avez pas trouvé la sortie !\n");
-                Mix_PlayMusic(looseMusic, -1); // On active le son de la défaite
+                Mix_HaltMusic(); // On coupe la musique du jeu
+                Mix_PlayChannel(-1, looseMusic, 0); // On active le son de la défaite
                 endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de défaite
-                return 0;
             }
         }
-        //finDeJeu()
-        freeAll(p,map,window,labyrenderer); // On libère la mémoire
-        endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de défaite
+        freeAll(p,map,window,labyrenderer,font); // On libère la mémoire
         freeMusic(backgroundMusic,stepSound,winMusic,looseMusic); 
         Mix_CloseAudio(); // On ferme l'audio
         printf("Fin de la partie !\n");

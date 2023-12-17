@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-I. `sdl2-config --cflags`
-LIBS=`sdl2-config --libs` -lSDL2_mixer -lm
+LIBS=`sdl2-config --libs` -lSDL2_ttf -lSDL2_mixer -lm
 DEPS = Map/map.h Player/player.h Render/render.h Tscreen/tscreen.h constantes.h
 OBJ = main.o Map/map.o Player/player.o Render/render.o Tscreen/tscreen.o
 

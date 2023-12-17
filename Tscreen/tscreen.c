@@ -1,33 +1,31 @@
 #include "tscreen.h"
 
 
-int getTimeLeft(beginTime,endTime)
+
+int getTimeLeft(int beginTime, int endTime)
 {
     return Temps - (endTime - beginTime);
 }
 
-void createScore(const char *filename,char* nom, int beginTime, int endTime)
+void createScore(const char *filename,const char* nom, int beginTime, int endTime)
 {
     int score = getTimeLeft(beginTime,endTime);
     FILE *file = fopen(filename, "a");
     fprintf(file,"\n%s : %d secondes restantes.",nom,score);
-    close(file);  
+    fclose(file);  
 }
 
-TTF_Font* loadFont(const char *police, int size){
-    TTF_Font *font = TTF_OpenFont(police,size);
-    return font;
-}
-
-void applyText(SDL_Renderer *renderer, int x, int y, int w, int h, const char* text, TTF_Font *font){
-    SDL_Color color = {0,210,255};
+void applyText(SDL_Renderer *renderer, int x, int y, int w, int h, const char* text, TTF_Font *font)
+{
+    SDL_Color color = {255,255,0};
     SDL_Surface *surface = TTF_RenderText_Solid(font,text,color);
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
     SDL_Rect rect = {x,y,w,h};
     SDL_RenderCopy(renderer, texture, NULL, &rect);
 }
 
-void freeFont(TTF_Font* font){
+void freeFont(TTF_Font* font)
+{
     TTF_CloseFont(font);
 }
 
@@ -91,7 +89,6 @@ void endImageWin(SDL_Renderer *renderer, const char *image, int zoom)
     }
     SDL_DestroyTexture(texture);
 }
-
 
 
 

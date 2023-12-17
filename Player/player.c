@@ -4,9 +4,12 @@ void initSpawnCoords(Player *p, GameMap *m){
 
 	int x;
 	int y;
-	for(int i=0;i<MAP_HEIGHT;i++){
-		for(int j=0;j<MAP_WIDTH;j++){
-			if(m->map[i][j]==2){
+	for(int i=0;i<MAP_HEIGHT;i++)
+	{
+		for(int j=0;j<MAP_WIDTH;j++)
+		{
+			if(m->map[i][j]==2)
+			{
 				p->x = j+0.5; // On initialise la position (x) du joueur
 				p->y = i+0.5; // On initialise la position (y) du joueur
 			}
