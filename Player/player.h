@@ -16,7 +16,7 @@ typedef struct
 	float angle;
 }Player;
 
-// Fonction
+// Fonction qui place le joueur en fonction du '2' sur la map
 void initSpawnCoords(Player *p, GameMap *m);
 
 // Fonction qui met à jour les variables d'angle en radian

@@ -25,10 +25,10 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
 // Notre fonction qui libère les ressources utilisées pour les sons
 void freeMusic(Mix_Music *backgroundMusic, Mix_Chunk *stepSound, Mix_Chunk *winMusic, Mix_Chunk *looseMusic) 
 {
-    Mix_FreeMusic(backgroundMusic);
-    Mix_FreeChunk(stepSound);
-    Mix_FreeChunk(winMusic);
-    Mix_FreeChunk(looseMusic);
+    Mix_FreeMusic(backgroundMusic); // Chargement de la musique de fond
+    Mix_FreeChunk(stepSound); // Chargement du bruit de pas
+    Mix_FreeChunk(winMusic); // Musique de victoire
+    Mix_FreeChunk(looseMusic); // Musique de défaite
 }
 
 
@@ -145,6 +145,7 @@ int main(int argc, char const *argv[])
     } 
     else 
     {
+    // Initialisation de toutes les variables
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     Mix_Music *backgroundMusic = NULL;
@@ -156,7 +157,7 @@ int main(int argc, char const *argv[])
     stepSound = Mix_LoadWAV("Ressources/Sound/pas.mp3");
     winMusic = Mix_LoadWAV("Ressources/Sound/winMusic.mp3");
     looseMusic = Mix_LoadWAV("Ressources/Sound/looseMusic.mp3");
-    TTF_Font* font = TTF_OpenFont("Ressources/Font/police.ttf", 20);
+    TTF_Font* font = TTF_OpenFont("Ressources/Font/police.ttf", 20); // Chargement de la police d'écriture
     Labyrendu* labyrenderer = createrender();
     initTextures(labyrenderer);
     startImage(labyrenderer->renderer,"Ressources/Images/startimage.bmp");
@@ -200,7 +201,7 @@ int main(int argc, char const *argv[])
             }
         }
         freeAll(p,map,window,labyrenderer,font); // On libère la mémoire
-        freeMusic(backgroundMusic,stepSound,winMusic,looseMusic); 
+        freeMusic(backgroundMusic,stepSound,winMusic,looseMusic); // On ne charge plus la musique
         Mix_CloseAudio(); // On ferme l'audio
         printf("Fin de la partie !\n");
         return 0;

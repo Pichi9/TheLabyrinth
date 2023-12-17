@@ -1,7 +1,6 @@
 #include "player.h"
 
 void initSpawnCoords(Player *p, GameMap *m){
-
 	int x;
 	int y;
 	for(int i=0;i<MAP_HEIGHT;i++)

@@ -19,7 +19,7 @@ typedef struct
 } Labyrendu;
 
 
-// Fonction qui initialise la SDL 
+// Fonction qui initialise SDL, l'audio et le texte
 void initSDL();
 
 // Fonction qui créer la fenetre et le renderer
