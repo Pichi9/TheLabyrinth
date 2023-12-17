@@ -29,7 +29,7 @@
 #define Speed 0.1
 
 // Temps de jeu
-#define Temps 250
+#define Temps 400
 
 // Zoom porte de fin
 #define SCALE_BEGIN 1.0f 

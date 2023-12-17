@@ -30,7 +30,7 @@ Labyrendu* createrender()
         return NULL;   
     }
 
-    labyrenderer->window = SDL_CreateWindow("Le Labyrinthe", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL); // Créer la fenetre a partir des constantes
+    labyrenderer->window = SDL_CreateWindow("The labyrinth", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL); // Créer la fenetre a partir des constantes
     if (labyrenderer->window == NULL) 
     {
         printf("Erreur dans la création de la fenêtre : %s\n", SDL_GetError()); // Gestions des erreurs

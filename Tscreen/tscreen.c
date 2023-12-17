@@ -11,7 +11,7 @@ void createScore(const char *filename,const char* nom, int beginTime, int endTim
 {
     int score = getTimeLeft(beginTime,endTime);
     FILE *file = fopen(filename, "a");
-    fprintf(file,"\n%s : %d secondes restantes.",nom,score);
+    fprintf(file,"\n%s : %d seconds left.",nom,score);
     fclose(file);  
 }
 

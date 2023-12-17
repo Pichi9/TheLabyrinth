@@ -19,7 +19,7 @@ The objective of the game is to navigate through the labyrinth, and find the sec
 
 "The Labyrinth" was created and developed by :
 - **MEBARKI Yacine**
-- **NOURISSIER Alexandre**
+- **NOURRISSIER Alexandre**
 
 ## Installation
 
