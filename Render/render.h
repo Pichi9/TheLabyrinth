@@ -46,9 +46,4 @@ void renderAll(Labyrendu* labyrender);
 // Fonction qui crée un rendu des murs
 void renderWall(Labyrendu* labyrenderer,GameMap* map, Player* p);
 
-
-
-
-
-
 #endif

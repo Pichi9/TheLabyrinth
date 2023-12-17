@@ -4,48 +4,50 @@ void initSDL()
 {
     if(SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
-        printf("Erreur dans l'initialisation de SDL : %s\n", SDL_GetError());
+        printf("Erreur dans l'initialisation de SDL : %s\n", SDL_GetError()); // Gestion des erreurs
         return;
     }
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) 
     {
-        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+        printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError()); // Gestion des erreurs
     }
 }
 
 Labyrendu* createrender()
 {
-    Labyrendu* labyrenderer = calloc(1, sizeof(Labyrendu));
+    Labyrendu* labyrenderer = calloc(1, sizeof(Labyrendu)); // Allocation de la mémoire pour le rendu
     if (labyrenderer == NULL) 
     {
-        printf("Erreur dans l'allocation pour le rendu\n");
+        printf("Erreur dans l'allocation pour le rendu\n"); // Gestion des erreurs
         return NULL;   
     }
 
-    labyrenderer->window = SDL_CreateWindow("Le Labyrinthe", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL);
-    if (labyrenderer->window == NULL) {
-        printf("Erreur dans la création de la fenêtre : %s\n", SDL_GetError());
+    labyrenderer->window = SDL_CreateWindow("Le Labyrinthe", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL); // Créer la fenetre a partir des constantes
+    if (labyrenderer->window == NULL) 
+    {
+        printf("Erreur dans la création de la fenêtre : %s\n", SDL_GetError()); // Gestions des erreurs
         free(labyrenderer);
         return NULL;
     }
 
-    labyrenderer->renderer = SDL_CreateRenderer(labyrenderer->window, -1, SDL_RENDERER_SOFTWARE);
-    if (labyrenderer->renderer == NULL) {
-        printf("Erreur de création du rendu : %s\n", SDL_GetError());
-        SDL_DestroyWindow(labyrenderer->window);
-        free(labyrenderer);
+    labyrenderer->renderer = SDL_CreateRenderer(labyrenderer->window, -1, SDL_RENDERER_SOFTWARE); // Créer le rendu pour la fenetre
+    if (labyrenderer->renderer == NULL) 
+    {
+        printf("Erreur de création du rendu : %s\n", SDL_GetError()); // Gestion des erreurs
+        SDL_DestroyWindow(labyrenderer->window); // Déstruction de la fenetre en cas d'echec
+        free(labyrenderer); // On libère la mémoire
         return NULL;
     }
-    return labyrenderer;
+    return labyrenderer; // On retourne le rendu 
 }
 
 
 void initTextures(Labyrendu* labyrenderer)
 {
-    SDL_Surface* tempSurface;
+    SDL_Surface* tempSurface; // Notre variable temporaire qui stock la surface 
     tempSurface = SDL_LoadBMP("Ressources/Textures/Floor.bmp");
-    labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);
-    SDL_FreeSurface(tempSurface);
+    labyrenderer->textureFloor = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface); // Créer une texture à partir de la surface
+    SDL_FreeSurface(tempSurface); // On libére la mémoire pour la variable temporaire, pour la réutiliser
 
     tempSurface = SDL_LoadBMP("Ressources/Textures/Sky.bmp");
     labyrenderer->textureSky = SDL_CreateTextureFromSurface(labyrenderer->renderer, tempSurface);

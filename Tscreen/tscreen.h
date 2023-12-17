@@ -22,7 +22,9 @@ void startImage(SDL_Renderer *renderer, const char *image);
 // Fonction qui affiche l'image de fin en cas de victoire avec un zoom vers la porte de sortie
 void endImageWin(SDL_Renderer *renderer, const char *image, int zoom);
 
-// Fonction qui ajoute du son
+// Fonction qui crée un fichier score
+void createScore(const char *filename,char* nom, int beginTime, int endTime);
+
 
 
 

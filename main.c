@@ -17,7 +17,7 @@ void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrendere
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
-
+// Notre fonction qui libère les ressources utilisées pour les sons
 void freeMusic(Mix_Music *backgroundMusic, Mix_Chunk *stepSound, Mix_Chunk *winMusic, Mix_Chunk *looseMusic) 
 {
     Mix_FreeMusic(backgroundMusic);
@@ -34,12 +34,13 @@ Uint32 last = 0;
 int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer, Mix_Chunk *stepSound)
 {
     Uint8 *keystates;
-    Uint32 now = SDL_GetTicks();
+    Uint32 now = SDL_GetTicks(); // Cette fonction permet de récupérer le temps écoulé depuis l'appel de initSDL
     while(SDL_PollEvent(event))
     {
+        // Si la touche Echap est pressée
         if(event->key.keysym.sym==SDLK_ESCAPE)
         {	
-            return 1;
+            return 1; // Ça quitte 
         }
 
         // Si la touche Z est pressée
@@ -51,10 +52,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
                 p->x += p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse 
                 p->y += p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
-                if (now - last > TIME_STEP)
+                if (now - last > TIME_STEP) // Gestion du délai entre chaque son des pas (on vérifie que le temps entre le son soit d'au moins TIME_STEP)
                 {
                     last = now;
-                    Mix_PlayChannel(-1, stepSound, 0);
+                    Mix_PlayChannel(-1, stepSound, 0); // On joue le son du pas
                 }
             };
         }
@@ -67,10 +68,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
                 p->x += p->dirY*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
                 p->y -= p->dirX*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
-                if (now - last > TIME_STEP)
+                if (now - last > TIME_STEP) // Gestion du délai entre chaque son des pas (on vérifie que le temps entre le son soit d'au moins TIME_STEP)
                 {
                     last = now;
-                    Mix_PlayChannel(-1, stepSound, 0);
+                    Mix_PlayChannel(-1, stepSound, 0); // On joue le son du pas
                 }
             };
         }
@@ -83,10 +84,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
                 p->x -= p->dirX*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
                 p->y -= p->dirY*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
-                if (now - last > TIME_STEP)
+                if (now - last > TIME_STEP) // Gestion du délai entre chaque son des pas (on vérifie que le temps entre le son soit d'au moins TIME_STEP)
                 {
                     last = now;
-                    Mix_PlayChannel(-1, stepSound, 0);
+                    Mix_PlayChannel(-1, stepSound, 0); // On joue le son du pas
                 }
             }
         }
@@ -99,10 +100,10 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
                 p->x -= p->dirY*Speed; // Met à jour la position (x) du joueur en fonction de la direction et la vitesse
                 p->y += p->dirX*Speed; // Met à jour la position (y) du joueur en fonction de la direction et la vitesse
                 anglePlayer(p); // Ajuste l'angle du joueur
-                if (now - last > TIME_STEP)
+                if (now - last > TIME_STEP) // Gestion du délai entre chaque son des pas (on vérifie que le temps entre le son soit d'au moins TIME_STEP)
                 {
                     last = now;
-                    Mix_PlayChannel(-1, stepSound, 0);
+                    Mix_PlayChannel(-1, stepSound, 0); // On joue le son du pas
                 }
             };
         }
@@ -111,7 +112,7 @@ int handle_events(SDL_Event *event, Player *p, GameMap *map, SDL_Window *window,
         if(event->type==SDL_MOUSEMOTION)
         {
             float move;
-            // Détermine la direction du mouvement de la sourie
+            // Détermine la direction du mouvement de la souris
             if(event->motion.x>SCREEN_WIDTH/2)
             {
                 move = 0.01;
@@ -173,30 +174,30 @@ int main(int argc, char const *argv[])
             renderWall(labyrenderer,map,p);
             SDL_RenderPresent(labyrenderer->renderer);
             currentTime = (int)time(NULL);
-            if(end(map,p->x,p->y))
+            if(end(map,p->x,p->y)) // Si on est à la position de la sortie du labyrinthe
             {
                 win=1;
                 printf("Vous avez trouvé la sortie !\n");
                 int endTime = (int)time(NULL);
                 createScore("Score.txt",argv[1], beginTime, endTime);
-                Mix_HaltMusic();
-                Mix_PlayChannel(-1, winMusic, 0); 
+                Mix_HaltMusic(); // On coupe la musique du jeu
+                Mix_PlayChannel(-1, winMusic, 0); // On active le son de la victoire
                 endImageWin(labyrenderer->renderer, "Ressources/Images/endimagewin.bmp", 1); 
                 return 0;
-            } else if(currentTime-beginTime>=Temps){
+            } else if(currentTime-beginTime>=Temps)
+            {
                 win=1;
                 printf("Vous n'avez pas trouvé la sortie !\n");
-                Mix_PlayMusic(winMusic, -1);
-                endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de victoire
+                Mix_PlayMusic(looseMusic, -1); // On active le son de la défaite
+                endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de défaite
                 return 0;
             }
         }
         //finDeJeu()
-        freeAll(p,map,window,labyrenderer);
-        Mix_PlayChannel(-1, looseMusic, 0); 
-        endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de victoire
-        freeMusic(backgroundMusic,stepSound,winMusic,looseMusic);
-        Mix_CloseAudio();
+        freeAll(p,map,window,labyrenderer); // On libère la mémoire
+        endImageLoose(labyrenderer->renderer, "Ressources/Images/endimageloose.bmp"); // Affiche l'image de défaite
+        freeMusic(backgroundMusic,stepSound,winMusic,looseMusic); 
+        Mix_CloseAudio(); // On ferme l'audio
         printf("Fin de la partie !\n");
         return 0;
     }

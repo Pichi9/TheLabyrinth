@@ -1,23 +1,26 @@
 #include "tscreen.h"
 
-void createScore(const char *filename,char* nom, int beginTime, int endTime){
-    int score = Temps - (endTime - beginTime);
-    FILE *file = fopen(filename, "a");
-    fprintf(file,"\n%s : %d secondes restantes.",nom,score);
+
+
+void createScore(const char *filename,char* nom, int beginTime, int endTime)
+{
+    int score = Temps - (endTime - beginTime); // Calcul du score en fonction du temps
+    FILE *file = fopen(filename, "a"); // Ouvre le fichier
+    fprintf(file,"\n%s : %d secondes restantes.",nom,score); // Ecriture du score selon le nom du joueur
     close(file);  
 }
 
 
 void endImageLoose(SDL_Renderer *renderer, const char *image) 
 {
-    SDL_Surface* endImage = SDL_LoadBMP(image);
-    SDL_Texture* endImageTexture = SDL_CreateTextureFromSurface(renderer, endImage);
-    SDL_FreeSurface(endImage); 
-    SDL_RenderClear(renderer);
+    SDL_Surface* endImage = SDL_LoadBMP(image); // Chargement de l'image
+    SDL_Texture* endImageTexture = SDL_CreateTextureFromSurface(renderer, endImage); // On crée la texture à partir de la surface
+    SDL_FreeSurface(endImage); // On libère la surface
+    SDL_RenderClear(renderer); // Nettoyage du rendu
     SDL_RenderCopy(renderer, endImageTexture, NULL, NULL);
     SDL_RenderPresent(renderer);
-    SDL_Delay(10000); 
-    SDL_DestroyTexture(endImageTexture);
+    SDL_Delay(10000); // L'image apparait 10 secondes 
+    SDL_DestroyTexture(endImageTexture); // On détruit la texture
 }
 
 void startImage(SDL_Renderer *renderer, const char *image)

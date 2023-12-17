@@ -25,11 +25,7 @@ void freeMap(GameMap *map);
 int isWall(GameMap *map, int x, int y);
 
 
-// Fonction qui affiche la carte
-void printMap(GameMap *map);
-
-
-// Fonction qui
+// Fonction qui vdit si c'est position est la sortie du labyrinthes
 int end(GameMap *map, int x, int y);
 
 #endif
