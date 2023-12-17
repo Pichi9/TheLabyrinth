@@ -10,10 +10,11 @@
 #include "Tscreen/tscreen.h"
 
 // Notre fonction qui libère les ressources utilisées dans le jeu 
-void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer)
+void freeAll(Player *p, GameMap *map, SDL_Window *window, Labyrendu *labyrenderer, TTF_Font *font)
 {
     freeMap(map); // Libération de la mémoire allouée pour la carte
     freePlayer(p); // Libération de la mémoire allouée pour le joueur
+    freeFont(font); // Libération de la mémoire allouée pour la police d'écriture
     cleanSDL(window,labyrenderer->renderer); // Nettoyage des ressources SDL
 }
 
@@ -153,6 +154,7 @@ int main(int argc, char const *argv[])
     winMusic = Mix_LoadWAV("Ressources/Sound/winMusic.mp3");
     looseMusic = Mix_LoadWAV("Ressources/Sound/looseMusic.mp3");
 
+    TTF_Font* font = loadFont("Ressources/Font/police.tff");
     Labyrendu* labyrenderer = createrender();
     initTextures(labyrenderer);
     startImage(labyrenderer->renderer,"Ressources/Images/startimage.bmp");
@@ -165,6 +167,7 @@ int main(int argc, char const *argv[])
     Mix_PlayMusic(backgroundMusic, -1);
     int beginTime = (int)time(NULL);
     int currentTime;
+    char showTime[50];
     int win = 0;
         while(win==0)
         {
@@ -173,6 +176,8 @@ int main(int argc, char const *argv[])
             renderWall(labyrenderer,map,p);
             SDL_RenderPresent(labyrenderer->renderer);
             currentTime = (int)time(NULL);
+            sprintf(showTime,"Temps : %d",getTimeLeft(beginTime,currentTime));
+            applyText(labyrenderer->renderer, 0,0,80,30,showTime,font)
             if(end(map,p->x,p->y))
             {
                 win=1;
